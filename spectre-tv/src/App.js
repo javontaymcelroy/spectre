@@ -5,6 +5,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
+import Loading from './components/Loading';
 
 class App extends Component {
   state = {
@@ -49,7 +50,7 @@ class App extends Component {
           />
         </>
       );
-    } else return 'Internal error: Something went wrong, contact TMDb.';
+    } else return <Loading />;
   }
 }
 
