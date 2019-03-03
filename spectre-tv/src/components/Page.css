@@ -1,0 +1,6 @@
+.page-container {
+  position: absolute;
+  z-index: 250;
+  left: 300px;
+  top: 90px;
+}

@@ -12,14 +12,14 @@
   border-right: 1.5px solid rgba(255, 255, 255, 0.089);
 }
 
-a {
+.links {
   font-size: 15px;
   text-decoration: none;
   color: grey;
   transition: 0.1s ease-in-out;
 }
 
-a:hover {
+.links:hover {
   transition: 0.1s ease-in-out;
   color: black;
   background-color: #16ff83;

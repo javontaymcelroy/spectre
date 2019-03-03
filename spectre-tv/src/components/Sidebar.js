@@ -1,20 +1,43 @@
 import React from 'react';
 import './Sidebar.css';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <div class='side-bar'>
-      <a href='/'>Home</a>
-      <a href='/'>Dramas</a>
-      <a href='/'>Fantasy</a>
-      <a href='/'>Thrillers</a>
-      <a href='/'>Animation</a>
-      <a href='/'>Crime</a>
-      <a href='/'>Horror</a>
-      <a href='/'>Action</a>
-      <a href='/'>Sci Fi</a>
-      <a href='/'>Comedy</a>
-      <a href='/'>History</a>
+      <NavLink exact to='/' className='links'>
+        Home
+      </NavLink>
+      <NavLink to='/Dramas' className='links'>
+        Dramas
+      </NavLink>
+      <NavLink to='/Fantasy' className='links'>
+        Fantasy
+      </NavLink>
+      <NavLink to='/Thrillers' className='links'>
+        Thrillers
+      </NavLink>
+      <NavLink to='/Animation' className='links'>
+        Animation
+      </NavLink>
+      <NavLink to='/Crime' className='links'>
+        Crime
+      </NavLink>
+      <NavLink to='/Horror' className='links'>
+        Horror
+      </NavLink>
+      <NavLink to='/Action' className='links'>
+        Action
+      </NavLink>
+      <NavLink to='/SciFi' className='links'>
+        Sci Fi
+      </NavLink>
+      <NavLink to='/Comedy' className='links'>
+        Comedy
+      </NavLink>
+      <NavLink to='/History' className='links'>
+        History
+      </NavLink>
     </div>
   );
 };

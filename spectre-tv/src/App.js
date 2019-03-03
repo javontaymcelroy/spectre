@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
+
 import './App.css';
+
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import Loading from './components/Loading';
+import Dramas from './components/Dramas';
 
 class App extends Component {
   state = {
@@ -48,9 +51,20 @@ class App extends Component {
 
       return (
         <>
-          <Navigation />
-          <Sidebar />
-          <Home popular={this.state.popular} rated={this.state.rated} />
+          <Route path='/' component={Navigation} />
+          <Route path='/' component={Sidebar} />
+          <Route
+            exact
+            path='/'
+            render={props => (
+              <Home
+                {...props}
+                popular={this.state.popular}
+                rated={this.state.rated}
+              />
+            )}
+          />
+          <Route path='/Dramas' render={props => <Dramas />} />
           <span className='overlay' />
           <img
             className='backdrop'
