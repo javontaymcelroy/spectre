@@ -6,10 +6,8 @@
 }
 
 .toprated-container {
-  position: absolute;
-  z-index: 250;
-  left: 300px;
-  top: 750px;
+  margin-top: 60px;
+  padding-bottom: 200px;
 }
 
 .headers {

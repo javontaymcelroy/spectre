@@ -10,7 +10,7 @@ import Loading from './components/Loading';
 class App extends Component {
   state = {
     popular: [],
-
+    rated: [],
     showKey: '',
     showId: '',
     pageNumber: '',
@@ -26,22 +26,31 @@ class App extends Component {
     } catch (err) {
       console.log(err.message);
     }
+    try {
+      const res = await axios.get(
+        'https://api.themoviedb.org/3/tv/top_rated?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US'
+      );
+      this.setState({ rated: res.data.results });
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 
   render() {
-    console.log(this.state.popular);
+    console.log(this.state.rated);
     const popular = this.state.popular;
+    const rated = this.state.rated;
 
     let src = '';
 
-    if (popular && popular.length > 0) {
+    if ((popular, rated && popular.length, rated.length > 0)) {
       src = 'http://image.tmdb.org/t/p/original' + popular[0].backdrop_path;
 
       return (
         <>
           <Navigation />
           <Sidebar />
-          <Home popular={this.state.popular} />
+          <Home popular={this.state.popular} rated={this.state.rated} />
           <span className='overlay' />
           <img
             className='backdrop'

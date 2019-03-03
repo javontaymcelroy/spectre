@@ -4,6 +4,11 @@
   width: 750px;
 }
 
+.poster-container-nohero {
+  display: flex;
+  width: 750px;
+}
+
 .posters {
   width: auto;
   height: 450px;

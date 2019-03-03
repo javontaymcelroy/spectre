@@ -2,9 +2,11 @@ import React from 'react';
 import HorizontalScroll from 'react-scroll-horizontal';
 import './Home.css';
 import PopularPosters from './PopularPosters';
+import TopRatedPosters from './TopRatedPosters';
 
-const Home = ({ popular }) => {
-  const parent = { width: `1600px`, height: `485px` };
+const Home = ({ popular, rated }) => {
+  const parent = { width: `82%`, height: `485px` };
+  const parentNoHero = { width: `100%`, height: `485px` };
   return (
     <>
       <div className='popular-container' style={parent}>
@@ -12,7 +14,7 @@ const Home = ({ popular }) => {
           <mark>Popular</mark>TV Shows
         </h1>
         <HorizontalScroll
-          reverseScroll='true'
+          reverseScroll='[true]'
           config={{ stiffness: 100, damping: 20 }}
         >
           <div className='home-display'>
@@ -33,6 +35,17 @@ const Home = ({ popular }) => {
             <PopularPosters popular={popular} />
           </div>
         </HorizontalScroll>
+        <div className='toprated-container' style={parentNoHero}>
+          <h1 className='headers'>
+            <mark>Top</mark>Rated
+          </h1>
+          <HorizontalScroll
+            reverseScroll='[true]'
+            config={{ stiffness: 100, damping: 20 }}
+          >
+            <TopRatedPosters rated={rated} />
+          </HorizontalScroll>
+        </div>
       </div>
     </>
   );

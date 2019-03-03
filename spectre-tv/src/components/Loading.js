@@ -5,7 +5,7 @@ import './Loading.css';
 const Loading = () => {
   return (
     <div className='loading'>
-      <PongSpinner size={80} color='#16ff83' loading='true' />
+      <PongSpinner size={80} color='#16ff83' />
     </div>
   );
 };
