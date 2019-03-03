@@ -9,7 +9,7 @@ import Home from './components/Home';
 
 class App extends Component {
   state = {
-    shows: [],
+    popular: [],
     showKey: '',
     showId: '',
     pageNumber: '',
@@ -21,26 +21,26 @@ class App extends Component {
       const res = await axios.get(
         'https://api.themoviedb.org/3/tv/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US'
       );
-      this.setState({ shows: res.data.results });
+      this.setState({ popular: res.data.results });
     } catch (err) {
       console.log(err.message);
     }
   }
 
   render() {
-    console.log(this.state.shows);
-    const shows = this.state.shows;
+    console.log(this.state.popular);
+    const popular = this.state.popular;
 
     let src = '';
 
-    if (shows && shows.length > 0) {
-      src = 'http://image.tmdb.org/t/p/original' + shows[0].backdrop_path;
+    if (popular && popular.length > 0) {
+      src = 'http://image.tmdb.org/t/p/original' + popular[0].backdrop_path;
 
       return (
         <>
           <Navigation />
           <Sidebar />
-          <Home shows={this.state.shows} />
+          <Home popular={this.state.popular} />
           <span className='overlay' />
           <img
             className='backdrop'

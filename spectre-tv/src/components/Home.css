@@ -1,8 +1,15 @@
-.home-container {
+.popular-container {
   position: absolute;
   z-index: 250;
   left: 300px;
   top: 90px;
+}
+
+.toprated-container {
+  position: absolute;
+  z-index: 250;
+  left: 300px;
+  top: 750px;
 }
 
 .headers {

@@ -1,6 +1,5 @@
 .poster-container {
   display: flex;
-  margin-left: 50px;
 }
 
 .posters {
@@ -9,13 +8,6 @@
   border-radius: 4px;
   margin-right: 50px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.452);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.posters:hover {
-  transition: 0.15s ease-in-out;
-  transform: scale(1.05);
 }
 
 .poster-title {
