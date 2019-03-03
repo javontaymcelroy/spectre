@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import axios from 'axios';
-
 import './App.css';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';

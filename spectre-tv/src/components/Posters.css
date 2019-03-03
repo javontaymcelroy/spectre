@@ -1,6 +1,7 @@
 .poster-container {
   display: flex;
   margin-left: 50px;
+  width: 750px;
 }
 
 .posters {
@@ -15,7 +16,7 @@
 
 .posters:hover {
   transition: 0.15s ease-in-out;
-  transform: scale(1.05);
+  filter: brightness(80%);
 }
 
 .poster-title {

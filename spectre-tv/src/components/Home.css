@@ -35,6 +35,13 @@
   border-radius: 4px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.452);
   filter: brightness(80%);
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+}
+
+.big-poster:hover {
+  transition: 0.15s ease-in-out;
+  filter: brightness(65%);
 }
 
 .hero-content {
@@ -48,6 +55,8 @@
   z-index: 200;
   padding: 0 30px;
   top: 250px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .hero-title {
