@@ -1,0 +1,57 @@
+.home-container {
+  position: absolute;
+  z-index: 250;
+  left: 300px;
+  top: 90px;
+}
+
+.headers {
+  color: white;
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.headers mark {
+  background: none;
+  color: #16ff83;
+  padding-right: 10px;
+}
+
+.home-display {
+  display: flex;
+}
+
+.big-poster {
+  width: auto;
+  height: 450px;
+  border-radius: 4px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.452);
+  filter: brightness(80%);
+}
+
+.hero-content {
+  position: relative;
+  height: 450px;
+  width: 800px;
+}
+
+.hero-info {
+  position: absolute;
+  z-index: 200;
+  padding: 0 30px;
+  top: 250px;
+}
+
+.hero-title {
+  color: white;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.hero-overview {
+  margin: 0;
+  color: white;
+  width: 95%;
+  line-height: 25px;
+}

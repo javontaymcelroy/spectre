@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
-import './Home.css';
-import mainPage from './components/mainpage';
+import './App.css';
+import Navigation from './components/Navigation';
+import Sidebar from './components/Sidebar';
+import Home from './components/Home';
 
-class Home extends Component {
+class App extends Component {
   state = {
     shows: [],
     showKey: '',
@@ -36,13 +38,19 @@ class Home extends Component {
 
       return (
         <>
-          <Route exact path='/' component={mainPage} shows={shows} src={src} />
+          <Navigation />
+          <Sidebar />
+          <Home shows={this.state.shows} />
           <span className='overlay' />
-          <img className='backdrop' src={src} alt='backdrop' />
+          <img
+            className='backdrop'
+            src='https://i.ibb.co/Cmw82nP/Web-1920-1-2x.png'
+            alt='backdrop'
+          />
         </>
       );
     } else return '';
   }
 }
 
-export default Home;
+export default App;
