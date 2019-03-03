@@ -7,8 +7,7 @@ import Home from './Home';
 
 ReactDOM.render(
   <Router>
-    {' '}
-    <Home />{' '}
+    <Home />
   </Router>,
   document.getElementById('root')
 );
