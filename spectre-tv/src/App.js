@@ -9,6 +9,7 @@ import Home from './components/Home';
 class App extends Component {
   state = {
     popular: [],
+
     showKey: '',
     showId: '',
     pageNumber: '',
@@ -48,7 +49,7 @@ class App extends Component {
           />
         </>
       );
-    } else return '';
+    } else return 'Internal error: Something went wrong, contact TMDb.';
   }
 }
 
