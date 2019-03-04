@@ -8,6 +8,7 @@ const Sidebar = ({ genres }) => {
       <NavLink to='/' className='links'>
         Home
       </NavLink>
+
       {genres.map(genre => {
         if (genre.name === 'Action & Adventure') {
           genre.name = 'Action';
