@@ -80,7 +80,6 @@ class App extends Component {
           />
 
           <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />
-
           <img
             className='backdrop'
             src={`http://image.tmdb.org/t/p/original${

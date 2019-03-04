@@ -7,7 +7,7 @@ const PopularPosters = ({ popular }) => {
     <div className='poster-container'>
       {popular.map(popular => (
         <div key={popular.id}>
-          <NavLink to={`/TvShows/${popular.id}`} className='title-links'>
+          <NavLink to={`/TvShow/${popular.id}`} className='title-links'>
             <img
               src={`http://image.tmdb.org/t/p/w500${popular.poster_path}`}
               alt={popular.name}

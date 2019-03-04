@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HorizontalScroll from 'react-scroll-horizontal';
 import './Home.css';
+
 import PopularPosters from './PopularPosters';
 import TopRatedPosters from './TopRatedPosters';
 
@@ -28,7 +29,7 @@ const Home = ({ popular, rated }) => {
                   {popular && popular.length > 0 ? popular[0].overview : ''}
                 </p>
               </div>
-              <NavLink to={`/TvShows/${popular[0].id}`}>
+              <NavLink to={`/TvShow/${popular[0].id}`}>
                 <img
                   className='big-poster'
                   src={

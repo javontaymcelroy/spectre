@@ -1,10 +1,11 @@
 .backdrop {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   position: fixed;
   z-index: 150;
   opacity: 0.3;
-  filter: blur(100px) grayscale(40%);
+  filter: blur(80px) grayscale(40%);
 }
 
 .overlay {
