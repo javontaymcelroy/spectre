@@ -24,6 +24,10 @@ class TvShow extends Component {
       .catch(err => console.log(err));
   }
 
+  addDefaultSrc(ev) {
+    ev.target.src = 'https://i.ibb.co/cbgFn2Z/spectre-default-backdrop.png';
+  }
+
   render() {
     console.log(this.state.showDetails);
     const showDetails = this.state.showDetails;
@@ -36,6 +40,7 @@ class TvShow extends Component {
             }
             alt={showDetails.name}
             className='show-backdrop'
+            onError={this.addDefaultSrc}
           />
           <div className='show-info'>
             <h1 className='headers'>{showDetails.name}</h1>
@@ -46,6 +51,7 @@ class TvShow extends Component {
           src={'http://image.tmdb.org/t/p/original' + showDetails.backdrop_path}
           alt={showDetails.name}
           className='show-page-backdrop'
+          onError={this.addDefaultSrc}
         />
         <span className='show-overlay' />
       </div>

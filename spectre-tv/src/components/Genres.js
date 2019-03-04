@@ -79,7 +79,7 @@ class Genres extends Component {
   };
 
   addDefaultSrc(ev) {
-    ev.target.src = 'https://i.ibb.co/kqQZC3B/movieposterdefault.png';
+    ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
   }
 
   render() {
