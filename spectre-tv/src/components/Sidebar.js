@@ -2,42 +2,32 @@ import React from 'react';
 import './Sidebar.css';
 import { NavLink } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = ({ genres }) => {
   return (
-    <div class='side-bar'>
-      <NavLink exact to='/' className='links'>
+    <div className='side-bar'>
+      <NavLink to='/' className='links'>
         Home
       </NavLink>
-      <NavLink to='/Dramas' className='links'>
-        Dramas
-      </NavLink>
-      <NavLink to='/Fantasy' className='links'>
-        Fantasy
-      </NavLink>
-      <NavLink to='/Thrillers' className='links'>
-        Thrillers
-      </NavLink>
-      <NavLink to='/Animation' className='links'>
-        Animation
-      </NavLink>
-      <NavLink to='/Crime' className='links'>
-        Crime
-      </NavLink>
-      <NavLink to='/Horror' className='links'>
-        Horror
-      </NavLink>
-      <NavLink to='/Action' className='links'>
-        Action
-      </NavLink>
-      <NavLink to='/SciFi' className='links'>
-        Sci Fi
-      </NavLink>
-      <NavLink to='/Comedy' className='links'>
-        Comedy
-      </NavLink>
-      <NavLink to='/History' className='links'>
-        History
-      </NavLink>
+      {genres.map(genre => {
+        if (genre.name === 'Action & Adventure') {
+          genre.name = 'Action';
+        } else if (genre.name === 'Sci-Fi & Fantasy') {
+          genre.name = 'Sci-Fi';
+        } else if (genre.name === 'War & Politics') {
+          genre.name = 'History';
+        }
+
+        return (
+          <NavLink
+            key={genre.id}
+            to={`/Genres/${genre.name}`}
+            className='links'
+            activeClassName='is-active'
+          >
+            {genre.name}
+          </NavLink>
+        );
+      })}
     </div>
   );
 };

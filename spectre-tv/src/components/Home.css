@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 250;
   left: 300px;
-  top: 90px;
+  top: 50px;
 }
 
 .toprated-container {
@@ -12,9 +12,9 @@
 
 .headers {
   color: white;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
 }
 
 .headers mark {
@@ -30,8 +30,7 @@
 .big-poster {
   width: auto;
   height: 450px;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.452);
+  border-radius: 2px;
   filter: brightness(80%);
   cursor: pointer;
   transition: 0.15s ease-in-out;

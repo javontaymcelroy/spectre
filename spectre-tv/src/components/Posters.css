@@ -12,9 +12,8 @@
 .posters {
   width: auto;
   height: 450px;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-right: 50px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.452);
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -25,8 +24,19 @@
 }
 
 .poster-title {
-  width: 300px;
+  width: 260px;
   color: white;
-  font-weight: 500;
-  margin: 10px 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  transition: 0.2s ease-in-out;
+}
+
+.poster-title:hover {
+  color: rgb(192, 192, 192);
+  transition: 0.2s ease-in-out;
+}
+
+.title-links {
+  text-decoration: none;
 }
