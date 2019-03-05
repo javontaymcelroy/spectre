@@ -15,7 +15,6 @@ const Extras = ({ extras }) => {
               height='225px'
               pip={true}
               controls={true}
-              loop={true}
             />
           );
         } else return '';

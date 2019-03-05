@@ -104,7 +104,7 @@
   display: flex;
   align-content: flex-end;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .network-logo {
@@ -123,7 +123,91 @@ mark {
   object-fit: contain;
   width: auto;
   height: 450px;
-  border-radius: 5px;
+  border-right: 2px solid rgba(128, 128, 128, 0.336);
+  padding-right: 50px;
+  transition: 0.2s ease-in-out;
+}
+
+.show-player {
+  display: flex;
+  max-height: 450px;
+  width: 600px;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.seasons-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+.seasons {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.seasons:hover {
+  color: #16ff83;
+}
+
+.episodes {
+  overflow: scroll;
+  max-height: 300px;
+}
+
+.episodes::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(128, 128, 128, 0);
+}
+
+.episodes::-webkit-scrollbar-thumb {
+  background-color: #4747477a;
+  width: 5px;
+  border-radius: 50px;
+}
+
+.episodes::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.episode {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.episode:hover {
+  color: #16ff83;
+  transition: 0.2s ease-in-out;
+}
+
+.episode-selection {
+  padding-left: 50px;
+}
+
+.episode-selection h2 {
+  color: #16ff83;
+  margin-top: 0;
+}
+
+.episode-selection h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.episode-selection p {
+  margin-bottom: 30px;
+  margin-top: 0;
+  padding-right: 10px;
+}
+
+.episode-overview {
+  letter-spacing: 1.2px;
+  font-size: 12.5px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.719);
 }
 
 .visit-site-btn {

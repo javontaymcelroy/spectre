@@ -18,7 +18,9 @@ class TvShow extends Component {
       extras: [],
       contentRating: [],
       credits: [],
-      networks: []
+      networks: [],
+      episodes: [],
+      seasons: []
     };
   }
 
@@ -30,6 +32,15 @@ class TvShow extends Component {
         }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
       )
       .then(res => this.setState({ showDetails: res.data }))
+      .catch(err => console.log(err));
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
+      )
+      .then(res => this.setState({ seasons: res.data.seasons }))
       .catch(err => console.log(err));
 
     axios
@@ -76,6 +87,15 @@ class TvShow extends Component {
       )
       .then(res => this.setState({ credits: res.data.cast }))
       .catch(err => console.log(err));
+
+    axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/season/1?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ episodes: res.data.episodes }))
+      .catch(err => console.log(err));
   }
 
   addDefaultSrc(ev) {
@@ -90,19 +110,44 @@ class TvShow extends Component {
     const showDetails = this.state.showDetails;
     const credits = this.state.credits;
     const networks = this.state.networks;
+    const episodes = this.state.episodes;
+    const seasons = this.state.seasons;
 
     const parentNoHero = { width: `100%`, height: `495px` };
     return (
       <div className='show-page-container'>
         <div className='show-hero'>
-          <img
-            src={
-              'http://image.tmdb.org/t/p/original' + showDetails.backdrop_path
-            }
-            alt={showDetails.name}
-            className='show-backdrop'
-            onError={this.addDefaultSrc}
-          />
+          <div className='show-player'>
+            <img
+              src={
+                'http://image.tmdb.org/t/p/original' + showDetails.backdrop_path
+              }
+              alt={showDetails.name}
+              className='show-backdrop'
+              onError={this.addDefaultSrc}
+            />
+            <div className='episode-selection'>
+              <h2>Seasons</h2>
+              <div className='seasons-flex'>
+                {seasons.map(season => (
+                  <p className='seasons'>{season.season_number}</p>
+                ))}
+              </div>
+              <h2>Episodes</h2>
+              <div className='episodes'>
+                {episodes.map(episode => (
+                  <>
+                    <h4 className='episode'>
+                      {' '}
+                      {episode.episode_number} - {episode.name}{' '}
+                    </h4>
+                    <p className='episode-overview'> {episode.overview} </p>
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className='show-info'>
             <h2 className='air-date'>
               {' '}
