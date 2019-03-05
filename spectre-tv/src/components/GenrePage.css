@@ -26,6 +26,15 @@
   cursor: pointer;
 }
 
+.genre-poster-title {
+  width: 260px;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  transition: 0.2s ease-in-out;
+}
+
 .page-posters:hover {
   filter: brightness(80%);
   transform: scale(1.05);
@@ -76,4 +85,44 @@
 .bottom-page-btns .next {
   padding-left: 0px;
   margin-right: 10px;
+}
+
+@media (max-width: 800px) {
+  .genre-page-container {
+    left: 30px;
+    top: 100px;
+  }
+
+  .page-posters {
+    width: auto;
+    height: 250px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .genre-posters {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    margin-top: 10px;
+  }
+
+  .genre-poster-title {
+    width: auto;
+    margin: 0;
+  }
+
+  .genre-flex {
+    display: flex;
+  }
+
+  .genre-header {
+    align-items: flex-start;
+  }
+
+  .next,
+  .prev {
+    height: 30px;
+    padding-right: 0;
+  }
 }

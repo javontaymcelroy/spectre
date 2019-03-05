@@ -71,3 +71,24 @@
   width: 95%;
   line-height: 25px;
 }
+
+@media (max-width: 800px) {
+  .popular-container {
+    left: 30px;
+    top: 100px;
+  }
+
+  .hero-content {
+    display: none;
+  }
+
+  .headers {
+    font-size: 1.2rem;
+    margin-left: 0px;
+  }
+
+  .toprated-container {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+}

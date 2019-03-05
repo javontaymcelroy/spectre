@@ -29,3 +29,9 @@
 .is-active {
   color: #16ff83;
 }
+
+@media (max-width: 800px) {
+  .side-bar {
+    display: none;
+  }
+}

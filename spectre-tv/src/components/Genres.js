@@ -113,7 +113,7 @@ class Genres extends Component {
               key={show.id}
               className='title-links'
             >
-              <div key={show.id}>
+              <div key={show.id} className='genre-flex'>
                 <img
                   src={`http://image.tmdb.org/t/p/w500${show.poster_path}`}
                   alt={show.name}
@@ -121,7 +121,7 @@ class Genres extends Component {
                   onError={this.addDefaultSrc}
                 />
 
-                <h3 className='poster-title'> {show.name} </h3>
+                <h3 className='genre-poster-title'> {show.name} </h3>
               </div>
             </NavLink>
           ))}

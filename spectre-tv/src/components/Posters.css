@@ -12,6 +12,7 @@
 .posters {
   width: auto;
   height: 450px;
+  object-fit: cover;
   border-radius: 2px;
   margin-right: 50px;
   transition: 0.3s ease-in-out;
@@ -39,4 +40,15 @@
 
 .title-links {
   text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .posters {
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+
+  .poster-container {
+    margin-left: 0px;
+  }
 }

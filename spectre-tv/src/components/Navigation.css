@@ -59,3 +59,17 @@ input,
 .search::placeholder {
   font-size: 25px;
 }
+
+@media (max-width: 800px) {
+  .nav-bar {
+    width: 363px;
+  }
+
+  .nav-bar h1 {
+    padding-left: 30px;
+  }
+
+  .search {
+    margin-right: 20px;
+  }
+}
