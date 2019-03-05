@@ -1,10 +1,23 @@
 .nav-bar {
   position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar h1 {
+  color: #16ff83;
+  padding-left: 50px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Audiowide', cursive;
+  letter-spacing: 2px;
 }
 
 .search {
@@ -14,7 +27,7 @@
   border: 1px solid rgba(128, 128, 128, 0);
   background-color: rgba(255, 255, 255, 0);
   margin-right: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
   transition: 0.2s ease-in-out;
 }
 

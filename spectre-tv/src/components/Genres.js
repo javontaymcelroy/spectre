@@ -23,7 +23,7 @@ class Genres extends Component {
   getCategoryId = () => {
     let categoryID = null;
 
-    this.props.genres.map(genre => {
+    this.props.genres.forEach(genre => {
       if (genre.name === 'Action & Adventure') {
         genre.name = 'Action';
       } else if (genre.name === 'Sci-Fi & Fantasy') {

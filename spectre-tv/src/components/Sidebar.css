@@ -13,29 +13,19 @@
 }
 
 .links {
-  font-size: 12px;
+  font-size: 0.8rem;
   text-decoration: none;
   letter-spacing: 1px;
   color: rgb(192, 192, 192);
-  transition: 0.2s ease-in-out;
-  padding: 10px 20px;
-  border-radius: 3px;
+  transition: 0.1s ease-in-out;
   width: 90px;
 }
 
 .links:hover {
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   color: #16ff83;
-  padding: 10px 20px;
-  border-radius: 3px;
-  font-weight: 500;
 }
 
 .is-active {
-  color: black;
-  background-color: #16ff83;
-  padding: 10px 20px;
-  border-radius: 3px;
-
-  font-weight: 500;
+  color: #16ff83;
 }

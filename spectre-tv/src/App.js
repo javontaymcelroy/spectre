@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Loading from './components/Loading';
 import Genres from './components/Genres';
 import TvShow from './components/TvShow';
+import SearchResults from './components/SearchResults';
 
 class App extends Component {
   state = {
@@ -22,7 +23,8 @@ class App extends Component {
     showId: '',
     pageNumber: '',
     trailerURL: '',
-    genres: []
+    genres: [],
+    search: ''
   };
 
   componentDidMount() {
@@ -59,7 +61,19 @@ class App extends Component {
     if (popular && popular.length > 0) {
       return (
         <div>
-          <Route path='/' component={Navigation} />
+          <Route
+            path='/'
+            component={Navigation}
+            render={props => (
+              <Navigation
+                {...props}
+                submitSearch={this.submitSearch}
+                searchChangeHandler={this.searchChangeHandler}
+              />
+            )}
+          />
+
+          <Route path='/search/:term' component={SearchResults} />
 
           <Route
             path='/'

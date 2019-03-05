@@ -18,7 +18,7 @@ const Extras = ({ extras }) => {
               loop={true}
             />
           );
-        }
+        } else return '';
       })}
     </div>
   );

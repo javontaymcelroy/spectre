@@ -1,10 +1,18 @@
 import React from 'react';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ submitSearch, searchChangeHandler }) => {
   return (
     <div className='nav-bar'>
-      <input className='search' placeholder='⌕' type='text' />
+      <h1>Spectre</h1>
+      <form onSubmit={submitSearch}>
+        <input
+          className='search'
+          placeholder='⌕'
+          type='text'
+          onChange={searchChangeHandler}
+        />
+      </form>
     </div>
   );
 };

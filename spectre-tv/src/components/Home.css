@@ -2,12 +2,13 @@
   position: absolute;
   z-index: 250;
   left: 15%;
-  top: 50px;
+  top: 70px;
 }
 
 .toprated-container {
   margin-top: 60px;
   padding-bottom: 200px;
+  padding-top: 60px;
 }
 
 .headers {
@@ -15,6 +16,8 @@
   font-weight: 700;
   font-size: 40px;
   letter-spacing: 0.5px;
+  margin: 0;
+  padding-bottom: 30px;
 }
 
 .headers mark {

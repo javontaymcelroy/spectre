@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import moment from 'moment';
 import axios from 'axios';
 import SimilarShowsPosters from './SimilarShows';
 import HorizontalScroll from 'react-scroll-horizontal';
@@ -15,7 +16,9 @@ class TvShow extends Component {
       showDetails: {},
       similarShows: [],
       extras: [],
-      contentRating: []
+      contentRating: [],
+      credits: [],
+      networks: []
     };
   }
 
@@ -27,6 +30,15 @@ class TvShow extends Component {
         }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
       )
       .then(res => this.setState({ showDetails: res.data }))
+      .catch(err => console.log(err));
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
+      )
+      .then(res => this.setState({ networks: res.data.networks }))
       .catch(err => console.log(err));
 
     axios
@@ -55,6 +67,15 @@ class TvShow extends Component {
       )
       .then(res => this.setState({ contentRating: res.data.results }))
       .catch(err => console.log(err));
+
+    axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/credits?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ credits: res.data.cast }))
+      .catch(err => console.log(err));
   }
 
   addDefaultSrc(ev) {
@@ -66,8 +87,10 @@ class TvShow extends Component {
   }
 
   render() {
-    console.log(this.state.showDetails);
     const showDetails = this.state.showDetails;
+    const credits = this.state.credits;
+    const networks = this.state.networks;
+
     const parentNoHero = { width: `100%`, height: `495px` };
     return (
       <div className='show-page-container'>
@@ -81,8 +104,46 @@ class TvShow extends Component {
             onError={this.addDefaultSrc}
           />
           <div className='show-info'>
-            <h1 className='headers'>{showDetails.name}</h1>
-            <p className='overviews'>{showDetails.overview}</p>
+            <h2 className='air-date'>
+              {' '}
+              {moment(showDetails.first_air_date, 'YYYY-MM-DD').format(
+                'YYYY'
+              )}{' '}
+            </h2>
+            <div className='header-flex'>
+              <h1 className='headers-hero'>{showDetails.name}</h1>
+              <h2> {showDetails.vote_average} / 10</h2>
+            </div>
+            <div className='overview-flex'>
+              <p className='overviews'>{showDetails.overview}</p>
+            </div>
+            <div className='show-info-container'>
+              <h2>Cast</h2>
+              <div className='cast'>
+                {credits.map(credit => (
+                  <>
+                    <p className='castname'>
+                      <mark>{credit.name}</mark> as {credit.character}
+                    </p>
+                    <p> · </p>
+                  </>
+                ))}
+              </div>
+            </div>
+            <div className='network-container'>
+              {networks.map(network => (
+                <>
+                  {/* <p className='network'>{network.name}</p> */}
+                  <img
+                    src={
+                      'http://image.tmdb.org/t/p/original' + network.logo_path
+                    }
+                    alt='logo'
+                    className='network-logo'
+                  />
+                </>
+              ))}
+            </div>
           </div>
         </div>
         <div className='extras-container'>
