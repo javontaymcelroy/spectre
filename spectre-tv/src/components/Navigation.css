@@ -9,7 +9,40 @@
 
 .search {
   color: grey;
+  width: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(128, 128, 128, 0);
+  background-color: rgba(255, 255, 255, 0);
   margin-right: 50px;
   margin-top: 30px;
-  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.search:hover {
+  transition: 0.2s ease-in-out;
+  width: 250px;
+  border: 1px solid rgba(128, 128, 128, 0.26);
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+.search:focus {
+  transition: 0.2s ease-in-out;
+  width: 250px;
+  border: 1px solid rgba(128, 128, 128, 0.26);
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+input,
+.search {
+  padding: 3px 10px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input,
+.search::placeholder {
+  font-size: 25px;
 }

@@ -48,6 +48,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  addDefaultSrc(ev) {
+    ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
+  }
+
   render() {
     window.scroll(0, 0);
     const popular = this.state.popular;
@@ -70,6 +74,7 @@ class App extends Component {
                 {...props}
                 popular={this.state.popular}
                 rated={this.state.rated}
+                addDefaultSrc={this.addDefaultSrc}
               />
             )}
           />

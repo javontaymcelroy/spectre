@@ -5,6 +5,7 @@ import SimilarShowsPosters from './SimilarShows';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 import './TvShow.css';
+import Extras from './Extras';
 
 class TvShow extends Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class TvShow extends Component {
     this.state = {
       id: this.props.match.params.id,
       showDetails: {},
-      similarShows: []
+      similarShows: [],
+      extras: [],
+      contentRating: []
     };
   }
 
@@ -30,9 +33,27 @@ class TvShow extends Component {
       .get(
         `https://api.themoviedb.org/3/tv/${
           this.state.id
-        }/similar?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
+        }/recommendations?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
       )
       .then(res => this.setState({ similarShows: res.data.results }))
+      .catch(err => console.log(err));
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/videos?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ extras: res.data.results }))
+      .catch(err => console.log(err));
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/content_ratings?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ contentRating: res.data.results }))
       .catch(err => console.log(err));
   }
 
@@ -64,9 +85,17 @@ class TvShow extends Component {
             <p className='overviews'>{showDetails.overview}</p>
           </div>
         </div>
+        <div className='extras-container'>
+          <h1 className='headers'>
+            <mark>Extras</mark>
+          </h1>
+          <div className='video-display' style={parentNoHero}>
+            <Extras extras={this.state.extras} />
+          </div>
+        </div>
         <div className='similar-container' style={parentNoHero}>
           <h1 className='headers'>
-            <mark>Similar</mark>TV Shows
+            <mark>Recommended</mark>TV Shows
           </h1>
           <HorizontalScroll
             reverseScroll={true}

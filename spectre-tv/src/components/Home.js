@@ -6,9 +6,10 @@ import './Home.css';
 import PopularPosters from './PopularPosters';
 import TopRatedPosters from './TopRatedPosters';
 
-const Home = ({ popular, rated }) => {
+const Home = ({ popular, rated, addDefaultSrc }) => {
   const parent = { width: `82%`, height: `495px` };
   const parentNoHero = { width: `100%`, height: `495px` };
+
   return (
     <>
       <div className='popular-container' style={parent}>
@@ -42,7 +43,7 @@ const Home = ({ popular, rated }) => {
                 />
               </NavLink>
             </div>
-            <PopularPosters popular={popular} />
+            <PopularPosters popular={popular} addDefaultSrc={addDefaultSrc} />
           </div>
         </HorizontalScroll>
         <div className='toprated-container' style={parentNoHero}>
