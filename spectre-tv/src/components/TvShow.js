@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 import SimilarShowsPosters from './SimilarShows';
@@ -112,6 +113,7 @@ class TvShow extends Component {
     const networks = this.state.networks;
     const episodes = this.state.episodes;
     const seasons = this.state.seasons;
+    const addMovie = this.props.addMovie;
 
     const parentNoHero = { width: `100%`, height: `495px` };
     return (
@@ -137,10 +139,15 @@ class TvShow extends Component {
               <div className='episodes'>
                 {episodes.map(episode => (
                   <>
-                    <h4 className='episode'>
-                      {' '}
-                      {episode.episode_number} - {episode.name}{' '}
-                    </h4>
+                    <NavLink
+                      to={`/TvShow/${this.state.id}/${episode.id}`}
+                      className='episode'
+                    >
+                      <h4 className='episode'>
+                        {' '}
+                        {episode.episode_number} - {episode.name}{' '}
+                      </h4>
+                    </NavLink>
                     <p className='episode-overview'> {episode.overview} </p>
                   </>
                 ))}
@@ -149,15 +156,20 @@ class TvShow extends Component {
           </div>
 
           <div className='show-info'>
-            <h2 className='air-date'>
-              {' '}
-              {moment(showDetails.first_air_date, 'YYYY-MM-DD').format(
-                'YYYY'
-              )}{' '}
-            </h2>
+            <div className='pre-header-flex'>
+              <h2 className='air-date'>
+                {' '}
+                {moment(showDetails.first_air_date, 'YYYY-MM-DD').format(
+                  'YYYY'
+                )}{' '}
+              </h2>
+              <h2> {showDetails.vote_average} / 10</h2>
+            </div>
             <div className='header-flex'>
               <h1 className='headers-hero'>{showDetails.name}</h1>
-              <h2> {showDetails.vote_average} / 10</h2>
+              <button className='favorite-btn' onClick={addMovie}>
+                + Add to List
+              </button>
             </div>
             <div className='overview-flex'>
               <p className='overviews'>{showDetails.overview}</p>

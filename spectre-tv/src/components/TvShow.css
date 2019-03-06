@@ -25,19 +25,8 @@
   font-weight: 500;
 }
 
-.header-flex {
+.pre-header-flex {
   display: flex;
-  align-items: flex-start;
-
-  height: 38px;
-}
-
-.header-flex h2 {
-  color: #16ff83;
-  padding-left: 10px;
-  font-size: 16px;
-  font-weight: 900;
-  margin-top: 21px;
 }
 
 .show-info .air-date {
@@ -47,12 +36,49 @@
   margin-top: 40px;
 }
 
+.pre-header-flex h2 {
+  color: #16ff83;
+  padding-left: 10px;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+
+  height: 38px;
+}
+
 .headers-hero {
   color: white;
   font-weight: 700;
   font-size: 40px;
   letter-spacing: 0.5px;
   margin: 0;
+}
+
+.favorite-btn {
+  margin-left: 20px;
+  border: 1.5px solid rgba(128, 128, 128, 0.432);
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 10px 35px;
+  color: rgba(128, 128, 128, 0.432);
+  background-color: rgba(32, 32, 32, 0);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.favorite-btn:hover {
+  border: 1.5px solid #16ff83;
+  transition: 0.2s ease-in-out;
+  background-color: #16ff83;
+  color: rgb(26, 26, 26);
+}
+
+.favorite-btn:focus {
+  outline: none;
 }
 
 .overview-flex {
@@ -176,6 +202,8 @@ mark {
 .episode {
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  color: white;
+  text-decoration: none;
 }
 
 .episode:hover {

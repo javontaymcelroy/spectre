@@ -11,3 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
 }
+
+button {
+  font-family: 'Roboto', sans-serif;
+}
