@@ -1,10 +1,13 @@
+// ------------DEPENDANCIES ----------------------//
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HorizontalScroll from 'react-scroll-horizontal';
+// ------------STYLES ----------------------//
 import './Home.css';
-
+// ------------COMPONENTS----------------------//
 import PopularPosters from './PopularPosters';
 import TopRatedPosters from './TopRatedPosters';
+// ------------FUNCTIONAL COMPONENT ----------------------//
 
 const Home = ({ popular, rated, addDefaultSrc }) => {
   const parent = { width: `82%`, height: `495px` };

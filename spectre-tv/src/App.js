@@ -1,12 +1,10 @@
-//DEPENDACIES
+// ------------DEPENDANCIES ----------------------//
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
-
-// STYLES
+// ------------STYLES ----------------------//
 import './App.css';
-
-// COMPONENTS
+// ------------COMPONENTS ----------------------//
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
@@ -15,6 +13,7 @@ import Genres from './components/Genres';
 import TvShow from './components/TvShow';
 import SearchResults from './components/SearchResults';
 
+// ------------CLASS COMPONENT ----------------------//
 class App extends Component {
   state = {
     popular: [],
@@ -26,6 +25,8 @@ class App extends Component {
     genres: [],
     search: ''
   };
+
+  // ------------DATA FETCHES----------------------//
 
   componentDidMount() {
     axios
@@ -50,14 +51,17 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  // ------------MISC FUNCTIONS----------------------//
+  // - Default Poster Images - //
   addDefaultSrc(ev) {
     ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
   }
 
   render() {
     window.scroll(0, 0);
+    // ------------DECONSTRUCTIONS----------------------//
     const popular = this.state.popular;
-
+    // ------------DATA RETURNS AN EMPTY ARRAY FIRST SO AN IF ELSE STATEMENT IS RAN TO GET THE DATA----------------------------//
     if (popular && popular.length > 0) {
       return (
         <div>

@@ -1,7 +1,8 @@
+// ------------DEPENDACIES ----------------------//
 import React, { Component, Redirect } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
-
+// ------------ CLASS COMPONENT ----------------------//
 class Search extends Component {
   state = {
     query: '',
@@ -18,6 +19,8 @@ class Search extends Component {
     }
   }
 
+  // ------------DATA FECTH----------------------//
+
   getInfo = () => {
     axios
       .get(
@@ -31,6 +34,8 @@ class Search extends Component {
         });
       });
   };
+
+  // ------------FUNCTIONS----------------------//
 
   handleInputChange = e => {
     e.preventDefault();
@@ -48,6 +53,8 @@ class Search extends Component {
       }
     );
   };
+
+  // ------------RENDER METHOD ----------------------//
 
   render() {
     return (
