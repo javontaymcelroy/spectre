@@ -1,8 +1,8 @@
-// ------------DEPENDACIES ----------------------//
-import React, { Component, Redirect } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
-// ------------ CLASS COMPONENT ----------------------//
+import SearchResults from './SearchResults';
+
 class Search extends Component {
   state = {
     query: '',
@@ -11,15 +11,10 @@ class Search extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { history } = this.props;
-    if (
-      this.state.results.length > 0 &&
-      prevState.results.length !== this.state.results.length
-    ) {
+    if (prevState.results !== this.state.results) {
       history.push('/results');
     }
   }
-
-  // ------------DATA FECTH----------------------//
 
   getInfo = () => {
     axios
@@ -34,8 +29,6 @@ class Search extends Component {
         });
       });
   };
-
-  // ------------FUNCTIONS----------------------//
 
   handleInputChange = e => {
     e.preventDefault();
@@ -54,9 +47,8 @@ class Search extends Component {
     );
   };
 
-  // ------------RENDER METHOD ----------------------//
-
   render() {
+    const results = this.state.results;
     return (
       <div>
         <form>

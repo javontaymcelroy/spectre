@@ -23,7 +23,8 @@ class App extends Component {
     pageNumber: '',
     trailerURL: '',
     genres: [],
-    search: ''
+    query: '',
+    searchResults: []
   };
 
   // ------------DATA FETCHES----------------------//
@@ -66,6 +67,7 @@ class App extends Component {
       return (
         <div>
           <Route component={Navigation} />
+          <Route path='/results' component={SearchResults} />
           <Route
             path='/'
             render={props => <Sidebar {...props} genres={this.state.genres} />}
