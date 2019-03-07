@@ -61,25 +61,12 @@ class App extends Component {
     if (popular && popular.length > 0) {
       return (
         <div>
-          <Route
-            path='/'
-            component={Navigation}
-            render={props => (
-              <Navigation
-                {...props}
-                submitSearch={this.submitSearch}
-                searchChangeHandler={this.searchChangeHandler}
-              />
-            )}
-          />
-
-          <Route path='/search/:term' component={SearchResults} />
-
+          <Route component={Navigation} />
+          <Route component={SearchResults} path='/results' />
           <Route
             path='/'
             render={props => <Sidebar {...props} genres={this.state.genres} />}
           />
-
           <Route
             exact
             path='/'
@@ -92,12 +79,10 @@ class App extends Component {
               />
             )}
           />
-
           <Route
             path='/Genres/:name'
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
-
           <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />
           <img
             className='backdrop'
@@ -106,7 +91,6 @@ class App extends Component {
             }`}
             alt='backdrop'
           />
-
           <span className='overlay' />
         </div>
       );

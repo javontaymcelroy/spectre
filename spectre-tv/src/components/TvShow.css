@@ -190,7 +190,7 @@ mark {
 }
 
 .episodes::-webkit-scrollbar-thumb {
-  background-color: #4747477a;
+  background-color: #1f1f1f9f;
   width: 5px;
   border-radius: 50px;
 }
