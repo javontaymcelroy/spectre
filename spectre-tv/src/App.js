@@ -62,7 +62,6 @@ class App extends Component {
       return (
         <div>
           <Route component={Navigation} />
-          <Route component={SearchResults} path='/results' />
           <Route
             path='/'
             render={props => <Sidebar {...props} genres={this.state.genres} />}

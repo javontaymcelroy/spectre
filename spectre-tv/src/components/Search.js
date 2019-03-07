@@ -1,11 +1,22 @@
 import React, { Component, Redirect } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 class Search extends Component {
   state = {
     query: '',
     results: []
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { history } = this.props;
+    if (
+      this.state.results.length > 0 &&
+      prevState.results.length !== this.state.results.length
+    ) {
+      history.push('/results');
+    }
+  }
 
   getInfo = () => {
     axios
@@ -50,17 +61,9 @@ class Search extends Component {
             onChange={this.handleInputChange}
           />
         </form>
-        {this.state.results.length > 0 && (
-          <Redirect
-            to={{
-              pathname: '/results',
-              state: { results: this.state.results }
-            }}
-          />
-        )}
       </div>
     );
   }
 }
 
-export default Search;
+export default withRouter(Search);
