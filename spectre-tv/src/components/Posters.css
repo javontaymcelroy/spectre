@@ -1,12 +1,17 @@
 .poster-container {
   display: flex;
   margin-left: 50px;
-  width: 750px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .poster-container-nohero {
   display: flex;
-  width: 750px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 .posters {
@@ -17,6 +22,12 @@
   margin-right: 50px;
   transition: 0.3s ease-in-out;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .posters:hover {

@@ -1,7 +1,6 @@
 // ------------DEPENDANCIES ----------------------//
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import HorizontalScroll from 'react-scroll-horizontal';
 // ------------STYLES ----------------------//
 import './Home.css';
 // ------------COMPONENTS----------------------//
@@ -19,46 +18,40 @@ const Home = ({ popular, rated, addDefaultSrc }) => {
         <h1 className='headers'>
           <mark>Popular</mark>TV Shows
         </h1>
-        <HorizontalScroll
-          reverseScroll={true}
-          config={{ stiffness: 100, damping: 20 }}
-        >
-          <div className='home-display'>
-            <div className='hero-content'>
-              <div className='hero-info'>
-                <h3 className='hero-title'>
-                  {popular && popular.length > 0 ? popular[0].name : ''}
-                </h3>
-                <p className='hero-overview'>
-                  {popular && popular.length > 0 ? popular[0].overview : ''}
-                </p>
-              </div>
-              <NavLink to={`/TvShow/${popular[0].id}`}>
-                <img
-                  className='big-poster'
-                  src={
-                    popular && popular.length > 0
-                      ? 'http://image.tmdb.org/t/p/original' +
-                        popular[0].backdrop_path
-                      : ''
-                  }
-                  alt={popular.name}
-                />
-              </NavLink>
+        <div className='home-display'>
+          <div className='hero-content'>
+            <div className='hero-info'>
+              <h3 className='hero-title'>
+                {popular && popular.length > 0 ? popular[0].name : ''}
+              </h3>
+              <p className='hero-overview'>
+                {popular && popular.length > 0 ? popular[0].overview : ''}
+              </p>
             </div>
-            <PopularPosters popular={popular} addDefaultSrc={addDefaultSrc} />
+            <NavLink to={`/TvShow/${popular[0].id}`}>
+              <img
+                className='big-poster'
+                src={
+                  popular && popular.length > 0
+                    ? 'http://image.tmdb.org/t/p/original' +
+                      popular[0].backdrop_path
+                    : ''
+                }
+                alt={popular.name}
+              />
+            </NavLink>
           </div>
-        </HorizontalScroll>
+          <PopularPosters
+            popular={popular}
+            addDefaultSrc={addDefaultSrc}
+            className='popular'
+          />
+        </div>
         <div className='toprated-container' style={parentNoHero}>
           <h1 className='headers'>
             <mark>Top</mark>Rated
           </h1>
-          <HorizontalScroll
-            reverseScroll={true}
-            config={{ stiffness: 100, damping: 20 }}
-          >
-            <TopRatedPosters rated={rated} />
-          </HorizontalScroll>
+          <TopRatedPosters rated={rated} />
         </div>
       </div>
     </>

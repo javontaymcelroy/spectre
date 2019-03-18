@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import Iframe from 'react-iframe';
 import axios from 'axios';
+
 import SimilarShowsPosters from './SimilarShows';
-import HorizontalScroll from 'react-scroll-horizontal';
 
 import './TvShow.css';
 import Extras from './Extras';
@@ -21,11 +23,21 @@ class TvShow extends Component {
       credits: [],
       networks: [],
       episodes: [],
-      seasons: []
+      seasons: [],
+      selectedSeason: 1,
+      selectedEpisode: null,
+      xPos: 0,
+      startXPos: null,
+      scrollStart: null,
+      ref: React.createRef(),
+      scrollLeft: 0
     };
   }
 
+  // -----------------------------SHOW DETAILS---------------------------------- //
   componentDidMount() {
+    console.log('TV show did mount');
+    this.getEpisodes(1);
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -35,6 +47,7 @@ class TvShow extends Component {
       .then(res => this.setState({ showDetails: res.data }))
       .catch(err => console.log(err));
 
+    // -----------------------------SEASONS---------------------------------- //
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -44,6 +57,7 @@ class TvShow extends Component {
       .then(res => this.setState({ seasons: res.data.seasons }))
       .catch(err => console.log(err));
 
+    // -----------------------------NETWORKS---------------------------------- //
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -53,6 +67,7 @@ class TvShow extends Component {
       .then(res => this.setState({ networks: res.data.networks }))
       .catch(err => console.log(err));
 
+    // -----------------------------SIMILAR SHOWS---------------------------------- //
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -62,6 +77,7 @@ class TvShow extends Component {
       .then(res => this.setState({ similarShows: res.data.results }))
       .catch(err => console.log(err));
 
+    // -----------------------------EXTRAS---------------------------------- //
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -71,6 +87,7 @@ class TvShow extends Component {
       .then(res => this.setState({ extras: res.data.results }))
       .catch(err => console.log(err));
 
+    // -----------------------------CONTENT RATING---------------------------------- //
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -80,6 +97,7 @@ class TvShow extends Component {
       .then(res => this.setState({ contentRating: res.data.results }))
       .catch(err => console.log(err));
 
+    // -----------------------------CREDITS---------------------------------- //
     axios
       .get(
         ` https://api.themoviedb.org/3/tv/${
@@ -88,16 +106,9 @@ class TvShow extends Component {
       )
       .then(res => this.setState({ credits: res.data.cast }))
       .catch(err => console.log(err));
-
-    axios
-      .get(
-        ` https://api.themoviedb.org/3/tv/${
-          this.state.id
-        }/season/1?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-      )
-      .then(res => this.setState({ episodes: res.data.episodes }))
-      .catch(err => console.log(err));
   }
+
+  // -----------------------------MISC FUNCTIONS---------------------------------- //
 
   addDefaultSrc(ev) {
     ev.target.src = 'https://i.ibb.co/cbgFn2Z/spectre-default-backdrop.png';
@@ -106,7 +117,89 @@ class TvShow extends Component {
   addDefaultSrcPoster(ev) {
     ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
   }
+  //Change selected season
+  selectSeason = number => {
+    this.setState({ selectedSeason: number });
+    this.getEpisodes(number);
+  };
 
+  componentWillReceiveProps = nextProps => {
+    let episodeNum = nextProps.match.params.episodeNumber;
+    if (episodeNum && episodeNum !== this.state.selectedEpisode) {
+      console.log('component recieved new props');
+      this.setState({ selectedEpisode: episodeNum });
+    }
+  };
+
+  getEpisodes = seasonNumber => {
+    // -----------------------------EPISODES---------------------------------- //
+    axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/season/${seasonNumber}?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ episodes: res.data.episodes }))
+      .catch(err => console.log(err));
+  };
+
+  // https://videospider.in/getvideo?key=4VQ6XG7DQ6o6EhxC&video_id=1412&tmdb=1&tv=1&s=1&e=64112
+
+  // https://videospider.in/getvideo?key=4VQ6XG7DQ6o6EhxC&video_id=1412&tmdb=1&tv=1&s=1&e=1
+
+  getTVStream = () => {
+    const KEY = '4VQ6XG7DQ6o6EhxC';
+    console.log(this.state.selectedSeason);
+    return `https://videospider.in/getvideo?key=${KEY}&video_id=${
+      this.state.id
+    }&tmdb=1&tv=1&s=${this.state.selectedSeason}&e=${
+      this.state.selectedEpisode
+    }`;
+  };
+
+  handleWheel = event => {
+    let node = ReactDOM.findDOMNode(this.state.ref.current);
+    event.preventDefault();
+    if (event.deltaY > 0) {
+      console.log('node', node.scrollLeft + 900);
+      node.scrollLeft = node.scrollLeft + 900;
+    } else {
+      console.log('node', node.scrollLeft - 900);
+      node.scrollLeft = node.scrollLeft - 900;
+    }
+  };
+
+  getContent = () => {
+    // This gets either the poster or the iframe for the video.
+    if (this.state.selectedEpisode) {
+      return (
+        <Iframe
+          title='show'
+          width='190%'
+          height='450px'
+          url={this.getTVStream()}
+          frameBorder='0'
+          allowFullScreen
+          display='initial'
+          position='relative'
+          sandbox=''
+        />
+      );
+    }
+    return (
+      <img
+        src={
+          'http://image.tmdb.org/t/p/original' +
+          this.state.showDetails.backdrop_path
+        }
+        alt={this.state.showDetails.name}
+        className='show-backdrop'
+        onError={this.addDefaultSrc}
+      />
+    );
+  };
+
+  // -----------------------------RENDER FUNCTION---------------------------------- //
   render() {
     const showDetails = this.state.showDetails;
     const credits = this.state.credits;
@@ -120,27 +213,28 @@ class TvShow extends Component {
       <div className='show-page-container'>
         <div className='show-hero'>
           <div className='show-player'>
-            <img
-              src={
-                'http://image.tmdb.org/t/p/original' + showDetails.backdrop_path
-              }
-              alt={showDetails.name}
-              className='show-backdrop'
-              onError={this.addDefaultSrc}
-            />
+            {this.getContent()}
+
+            {/*-----------------------------SEASONS & EPISODES--------------------------------------*/}
+
             <div className='episode-selection'>
               <h2>Seasons</h2>
               <div className='seasons-flex'>
                 {seasons.map(season => (
-                  <p className='seasons'>{season.season_number}</p>
+                  <p
+                    className='seasons'
+                    onClick={() => this.selectSeason(season.season_number)}
+                  >
+                    {season.season_number}
+                  </p>
                 ))}
               </div>
               <h2>Episodes</h2>
-              <div className='episodes'>
+              <div className='episodes scroller'>
                 {episodes.map(episode => (
                   <>
                     <NavLink
-                      to={`/TvShow/${this.state.id}/${episode.id}`}
+                      to={`/TvShow/${this.state.id}/${episode.episode_number}`}
                       className='episode'
                     >
                       <h4 className='episode'>
@@ -172,7 +266,7 @@ class TvShow extends Component {
               </button>
             </div>
             <div className='overview-flex'>
-              <p className='overviews'>{showDetails.overview}</p>
+              <p className='overviews scroller'>{showDetails.overview}</p>
             </div>
             <div className='show-info-container'>
               <h2>Cast</h2>
@@ -215,15 +309,13 @@ class TvShow extends Component {
           <h1 className='headers'>
             <mark>Recommended</mark>TV Shows
           </h1>
-          <HorizontalScroll
-            reverseScroll={true}
-            config={{ stiffness: 100, damping: 20 }}
-          >
-            <SimilarShowsPosters
-              similarShows={this.state.similarShows}
-              addDefaultSrcPoster={this.addDefaultSrcPoster}
-            />
-          </HorizontalScroll>
+
+          <SimilarShowsPosters
+            wheel={this.handleWheel}
+            similarShows={this.state.similarShows}
+            addDefaultSrcPoster={this.addDefaultSrcPoster}
+            ref={this.state.ref}
+          />
         </div>
         <img
           src={'http://image.tmdb.org/t/p/original' + showDetails.backdrop_path}

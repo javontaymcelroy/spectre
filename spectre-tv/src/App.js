@@ -22,9 +22,7 @@ class App extends Component {
     showId: '',
     pageNumber: '',
     trailerURL: '',
-    genres: [],
-    query: '',
-    searchResults: []
+    genres: []
   };
 
   // ------------DATA FETCHES----------------------//
@@ -67,7 +65,7 @@ class App extends Component {
       return (
         <div>
           <Route component={Navigation} />
-          <Route path='/results' component={SearchResults} />
+          <Route path='/results/:query' component={SearchResults} />
           <Route
             path='/'
             render={props => <Sidebar {...props} genres={this.state.genres} />}
@@ -89,6 +87,10 @@ class App extends Component {
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
           <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />
+          <Route
+            path='/TvShow/:id/:episodeNumber'
+            render={props => <TvShow {...props} />}
+          />
           <img
             className='backdrop'
             src={`http://image.tmdb.org/t/p/original${

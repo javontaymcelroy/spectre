@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Posters.css';
 
-const SimilarShowsPosters = ({ similarShows, addDefaultSrcPoster }) => {
-  return (
-    <div className='poster-container-nohero'>
+const SimilarShowsPosters = React.forwardRef(
+  ({ similarShows, addDefaultSrcPoster, wheel }, ref) => (
+    <div className='poster-container-nohero' ref={ref} onWheel={wheel}>
       {similarShows.map(similarShows => (
         <div key={similarShows.id}>
           <NavLink
@@ -18,13 +18,14 @@ const SimilarShowsPosters = ({ similarShows, addDefaultSrcPoster }) => {
               alt={similarShows.name}
               className='posters'
               onError={addDefaultSrcPoster}
+              draggable='false'
             />
             <h3 className='poster-title'> {similarShows.name} </h3>
           </NavLink>
         </div>
       ))}
     </div>
-  );
-};
+  )
+);
 
 export default SimilarShowsPosters;

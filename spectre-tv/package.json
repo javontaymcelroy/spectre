@@ -8,6 +8,8 @@
     "react": "^16.8.3",
     "react-alice-carousel": "^1.13.1",
     "react-dom": "^16.8.3",
+    "react-hammerjs": "^1.0.1",
+    "react-iframe": "^1.5.0",
     "react-player": "^1.9.3",
     "react-responsive-carousel": "^3.1.47",
     "react-router-dom": "^4.3.1",

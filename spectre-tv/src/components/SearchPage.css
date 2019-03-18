@@ -1,0 +1,7 @@
+.search-page-container {
+  position: absolute;
+  z-index: 250;
+  left: 10vh;
+  top: 70px;
+  width: 80%;
+}
