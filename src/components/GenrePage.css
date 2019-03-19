@@ -6,6 +6,16 @@
   width: 80%;
 }
 
+.headers-genre {
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  margin-left: 2%;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+
 .genre-posters {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));

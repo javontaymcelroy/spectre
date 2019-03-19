@@ -88,7 +88,7 @@ class Genres extends Component {
     return (
       <div className='genre-page-container'>
         <div className='genre-header'>
-          <h1 className='headers'>{this.state.category}</h1>
+          <h1 className='headers-genre'>{this.state.category}</h1>
           <div className='page-btns'>
             <img
               className={this.state.pageNumber === 1 ? 'prev disabled' : 'prev'}
