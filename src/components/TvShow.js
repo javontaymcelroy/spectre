@@ -184,7 +184,7 @@ class TvShow extends Component {
           allowFullScreen
           display='initial'
           position='relative'
-          sandbox=''
+          Sandbox=''
         />
       );
     }

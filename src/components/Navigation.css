@@ -16,6 +16,12 @@
   height: 40px;
 }
 
+@media (max-width: 1380px) {
+  .logo {
+    margin-left: 2vh;
+  }
+}
+
 .search {
   color: grey;
   width: 20px;

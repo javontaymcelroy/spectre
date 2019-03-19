@@ -1,27 +1,26 @@
 .genre-page-container {
   position: absolute;
   z-index: 250;
-  left: 300px;
+  left: 15%;
   top: 70px;
   width: 80%;
 }
 
 .genre-posters {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(20vh, 1fr));
   grid-row-gap: 50px;
+  grid-column-gap: 40px;
   justify-content: center;
-  width: 98.5%;
-  padding-left: 20px;
+  justify-items: center;
+  width: 100%;
   padding-bottom: 20px;
 }
 
 .page-posters {
   width: auto;
-  height: 390px;
+  height: 350px;
   border-radius: 4px;
-  margin-right: 50px;
-
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }

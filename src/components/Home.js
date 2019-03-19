@@ -48,10 +48,10 @@ const Home = React.forwardRef(
           onWheel={e => wheel(e, 'top')}
         />
       </div>
+      <h1 className='headers-top'>
+        <mark>Top</mark>Rated
+      </h1>
       <div className='toprated-container scroller' style={parentNoHero}>
-        <h1 className='headers'>
-          <mark>Top</mark>Rated
-        </h1>
         <TopRatedPosters
           rated={rated}
           ref={ref}
