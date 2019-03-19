@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import './SearchPage.css';
+import './Posters.css';
 
 class SearchResults extends Component {
   state = {
@@ -26,31 +27,32 @@ class SearchResults extends Component {
     }
   }
 
+  addDefaultSrc(ev) {
+    ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
+  }
+
   componentDidMount() {}
 
   render() {
     return (
-      <div classname='search-page-container'>
-        <div className='search-header'>
-          <div className='search-posters'>
-            {this.state.results.map(result => {
-              return (
-                <Link to={`/TvShow/${result.id}`} className='title-links'>
-                  <div className='search-flex'>
-                    <img
-                      src={`http://image.tmdb.org/t/p/w500${
-                        result.poster_path
-                      }`}
-                      alt={result.name}
-                      className='search-posters'
-                    />
-                    <h3 className='search-poster-title'> {result.name} </h3>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+      <div className='search-poster-container'>
+        {this.state.results.map(result => {
+          return (
+            <Link to={`/TvShow/${result.id}`} className='title-links'>
+              <div className='search-flex'>
+                <div>
+                  <img
+                    src={`http://image.tmdb.org/t/p/w500${result.poster_path}`}
+                    alt={result.name}
+                    className='search-posters'
+                    onError={this.addDefaultSrc}
+                  />
+                  <h3 className='search-poster-title'> {result.name} </h3>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     );
   }

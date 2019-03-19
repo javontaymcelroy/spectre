@@ -2,12 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Posters.css';
 
-const PopularPosters = ({ popular, addDefaultSrc }) => {
-  return (
-    <div className='poster-container'>
+const PopularPosters = React.forwardRef(
+  ({ popular, addDefaultSrc, onWheel }, popref) => (
+    <div className='poster-container scroller' ref={popref} onWheel={onWheel}>
       {popular.map(popular => (
         <div key={popular.id}>
-          <NavLink to={`/TvShow/${popular.id}`} className='title-links'>
+          <NavLink to={`/TvShow/${popular.id}/1`} className='title-links'>
             <img
               src={`http://image.tmdb.org/t/p/w500${popular.poster_path}`}
               alt={popular.name}
@@ -19,7 +19,7 @@ const PopularPosters = ({ popular, addDefaultSrc }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+);
 
 export default PopularPosters;

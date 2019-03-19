@@ -20,6 +20,10 @@
   padding-bottom: 30px;
 }
 
+.scroller {
+  scrollbar-width: none;
+}
+
 .headers mark {
   background: none;
   color: #16ff83;

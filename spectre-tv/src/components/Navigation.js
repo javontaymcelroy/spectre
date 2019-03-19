@@ -6,7 +6,13 @@ import Search from './Search';
 const Navigation = () => {
   return (
     <div className='nav-bar'>
-      <h1>Spectre</h1>
+      <a href='/'>
+        <img
+          src={require(`../assets/spectre_logo.png`)}
+          alt='spectre'
+          className='logo'
+        />
+      </a>
       <Search />
     </div>
   );

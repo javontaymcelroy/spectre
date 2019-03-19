@@ -1,7 +1,40 @@
-.search-page-container {
+.search-poster-container {
   position: absolute;
   z-index: 250;
-  left: 10vh;
+  left: 300px;
   top: 70px;
   width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 50px;
+}
+
+.search-flex {
+  justify-content: center;
+  width: 80.5%;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.search-posters {
+  width: auto;
+  height: 390px;
+  border-radius: 4px;
+  margin-right: 50px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.search-posters:hover {
+  filter: brightness(80%);
+  transform: scale(1.05);
+}
+
+.search-poster-title {
+  width: 260px;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  transition: 0.2s ease-in-out;
 }

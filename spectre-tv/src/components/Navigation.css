@@ -9,15 +9,11 @@
   align-items: center;
 }
 
-.nav-bar h1 {
-  color: #16ff83;
-  padding-left: 50px;
-  margin-top: 20px;
-  font-size: 25px;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 2px;
+.logo {
+  margin-left: 5vh;
+  margin-top: 15px;
+  width: auto;
+  height: 40px;
 }
 
 .search {
@@ -27,7 +23,7 @@
   border: 1px solid rgba(128, 128, 128, 0);
   background-color: rgba(255, 255, 255, 0);
   margin-right: 50px;
-  margin-top: 20px;
+  margin-top: 5px;
   transition: 0.2s ease-in-out;
 }
 

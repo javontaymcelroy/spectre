@@ -4,7 +4,7 @@ import './Posters.css';
 
 const SimilarShowsPosters = React.forwardRef(
   ({ similarShows, addDefaultSrcPoster, wheel }, ref) => (
-    <div className='poster-container-nohero' ref={ref} onWheel={wheel}>
+    <div className='poster-container-nohero scroller' ref={ref} onWheel={wheel}>
       {similarShows.map(similarShows => (
         <div key={similarShows.id}>
           <NavLink

@@ -30,13 +30,15 @@ class TvShow extends Component {
       startXPos: null,
       scrollStart: null,
       ref: React.createRef(),
-      scrollLeft: 0
+      scrollLeft: 0,
+      getShow: false
     };
   }
 
   // -----------------------------SHOW DETAILS---------------------------------- //
   componentDidMount() {
     console.log('TV show did mount');
+    this.setState({ getShow: true });
     this.getEpisodes(1);
     axios
       .get(
@@ -131,8 +133,8 @@ class TvShow extends Component {
     }
   };
 
+  // -----------------------------EPISODES---------------------------------- //
   getEpisodes = seasonNumber => {
-    // -----------------------------EPISODES---------------------------------- //
     axios
       .get(
         ` https://api.themoviedb.org/3/tv/${
@@ -161,11 +163,11 @@ class TvShow extends Component {
     let node = ReactDOM.findDOMNode(this.state.ref.current);
     event.preventDefault();
     if (event.deltaY > 0) {
-      console.log('node', node.scrollLeft + 900);
-      node.scrollLeft = node.scrollLeft + 900;
+      console.log('node', node.scrollLeft + 950);
+      node.scrollLeft = node.scrollLeft + 950;
     } else {
-      console.log('node', node.scrollLeft - 900);
-      node.scrollLeft = node.scrollLeft - 900;
+      console.log('node', node.scrollLeft - 950);
+      node.scrollLeft = node.scrollLeft - 950;
     }
   };
 
@@ -199,8 +201,13 @@ class TvShow extends Component {
     );
   };
 
+  changeGetShow = () => {
+    this.setState({ getShow: true });
+  };
+
   // -----------------------------RENDER FUNCTION---------------------------------- //
   render() {
+    window.scroll(0, 0);
     const showDetails = this.state.showDetails;
     const credits = this.state.credits;
     const networks = this.state.networks;
@@ -234,6 +241,7 @@ class TvShow extends Component {
                 {episodes.map(episode => (
                   <>
                     <NavLink
+                      onClick={this.changeGetShow}
                       to={`/TvShow/${this.state.id}/${episode.episode_number}`}
                       className='episode'
                     >
@@ -305,15 +313,15 @@ class TvShow extends Component {
             <Extras extras={this.state.extras} />
           </div>
         </div>
-        <div className='similar-container' style={parentNoHero}>
+        <div className='similar-container scroller' style={parentNoHero}>
           <h1 className='headers'>
             <mark>Recommended</mark>TV Shows
           </h1>
 
           <SimilarShowsPosters
-            wheel={this.handleWheel}
             similarShows={this.state.similarShows}
             addDefaultSrcPoster={this.addDefaultSrcPoster}
+            wheel={this.handleWheel}
             ref={this.state.ref}
           />
         </div>

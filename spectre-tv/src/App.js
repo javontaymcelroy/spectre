@@ -1,5 +1,6 @@
 // ------------DEPENDANCIES ----------------------//
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 // ------------STYLES ----------------------//
@@ -22,7 +23,13 @@ class App extends Component {
     showId: '',
     pageNumber: '',
     trailerURL: '',
-    genres: []
+    genres: [],
+    xPos: 0,
+    startXPos: null,
+    scrollStart: null,
+    topref: React.createRef(),
+    popref: React.createRef(),
+    scrollLeft: 0
   };
 
   // ------------DATA FETCHES----------------------//
@@ -56,6 +63,27 @@ class App extends Component {
     ev.target.src = 'https://i.ibb.co/PwJHHhT/movieposterdefault.png';
   }
 
+  handleWheel = (event, location = null) => {
+    //stop the screen from scrolling up or down.
+    event.preventDefault();
+
+    //get the dom element from the react ref
+    let node = ReactDOM.findDOMNode(this.state.topref.current);
+
+    if (location === 'top') {
+      //if location is top then get the other ref
+      node = ReactDOM.findDOMNode(this.state.popref.current);
+    }
+
+    if (event.deltaY > 0) {
+      //scrolling down on the wheel
+      node.scrollLeft = node.scrollLeft + 600;
+    } else {
+      //scrolling up on the wheel.
+      node.scrollLeft = node.scrollLeft - 600;
+    }
+  };
+
   render() {
     window.scroll(0, 0);
     // ------------DECONSTRUCTIONS----------------------//
@@ -79,6 +107,9 @@ class App extends Component {
                 popular={this.state.popular}
                 rated={this.state.rated}
                 addDefaultSrc={this.addDefaultSrc}
+                wheel={this.handleWheel}
+                ref={this.state.topref}
+                popref={this.state.popref}
               />
             )}
           />
