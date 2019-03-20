@@ -117,7 +117,7 @@ class App extends Component {
             path='/:name'
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
-          <Route path='/tvshow/:id' render={props => <tvshow {...props} />} />
+          <Route path='/tvshow/:id' render={props => <TvShow {...props} />} />
           <Route
             path='/tvshow/:id/:episodeNumber'
             render={props => <tvshow {...props} />}
