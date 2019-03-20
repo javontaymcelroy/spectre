@@ -117,10 +117,10 @@ class App extends Component {
             path='/:name'
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
-          <Route path='/tvshow/:id' render={props => <TvShow {...props} />} />
+          <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />
           <Route
-            path='/tvshow/:id/:episodeNumber'
-            render={props => <tvshow {...props} />}
+            path='/TvShow/:id/:episodeNumber'
+            render={props => <TvShow {...props} />}
           />
           <img
             className='backdrop'

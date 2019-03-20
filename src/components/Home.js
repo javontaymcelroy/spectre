@@ -27,7 +27,7 @@ const Home = React.forwardRef(
               {popular && popular.length > 0 ? popular[0].overview : ''}
             </p>
           </div>
-          <NavLink to={`/tvshow/${popular[0].id}/1`}>
+          <NavLink to={`/TvShow/${popular[0].id}/1`}>
             <img
               className='big-poster'
               src={

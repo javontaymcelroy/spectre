@@ -16,7 +16,7 @@ class MyList extends Component {
   };
 
   render() {
-    return <tvshow addMovie={this.addMovie} />;
+    return <TvShow addMovie={this.addMovie} />;
   }
 }
 

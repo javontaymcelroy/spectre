@@ -11,7 +11,7 @@ const TopRatedPosters = React.forwardRef(
     >
       {rated.map(rated => (
         <div key={rated.id}>
-          <NavLink to={`/tvshow/${rated.id}`} className='title-links'>
+          <NavLink to={`/TvShow/${rated.id}`} className='title-links'>
             <img
               src={`http://image.tmdb.org/t/p/w500${rated.poster_path}`}
               alt={rated.name}
