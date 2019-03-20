@@ -114,12 +114,12 @@ class App extends Component {
             )}
           />
           <Route
-            path='/Genres/:name/'
+            path='/:name'
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
-          <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />
+          <Route path='/tvshow/:id' render={props => <TvShow {...props} />} />
           <Route
-            path='/TvShow/:id/:episodeNumber'
+            path='/tvshow/:id/:episodeNumber'
             render={props => <TvShow {...props} />}
           />
           <img

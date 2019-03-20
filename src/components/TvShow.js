@@ -242,7 +242,7 @@ class TvShow extends Component {
                   <>
                     <NavLink
                       onClick={this.changeGetShow}
-                      to={`/TvShow/${this.state.id}/${episode.episode_number}`}
+                      to={`/tvshow/${this.state.id}/${episode.episode_number}`}
                       className='episode'
                     >
                       <h4 className='episode'>

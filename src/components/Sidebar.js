@@ -21,7 +21,7 @@ const Sidebar = ({ genres }) => {
         return (
           <NavLink
             key={genre.id}
-            to={`/Genres/${genre.name}/`}
+            to={`/${genre.name}`}
             className='links'
             activeClassName='is-active'
           >

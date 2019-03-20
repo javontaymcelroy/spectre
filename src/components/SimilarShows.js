@@ -8,7 +8,7 @@ const SimilarShowsPosters = React.forwardRef(
       {similarShows.map(similarShows => (
         <div key={similarShows.id}>
           <NavLink
-            to={`/TvShow/${similarShows.id}`}
+            to={`/tvshow/${similarShows.id}`}
             className='title-links'
             value='Refresh Page'
             onClick='window.location.reload()'
