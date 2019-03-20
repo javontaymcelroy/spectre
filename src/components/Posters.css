@@ -15,7 +15,7 @@
 }
 
 .poster-container::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.137);
+  background: rgba(255, 255, 255, 0.075);
   height: 8px;
   border-radius: 20px;
 }
@@ -35,7 +35,7 @@
 }
 
 .poster-container-nohero::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.137);
+  background: rgba(255, 255, 255, 0.075);
   height: 8px;
   border-radius: 20px;
 }

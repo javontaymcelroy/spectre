@@ -177,7 +177,7 @@ class TvShow extends Component {
       return (
         <Iframe
           title='show'
-          width='190%'
+          width='2500px'
           height='450px'
           url={this.getTVStream()}
           frameBorder='0'

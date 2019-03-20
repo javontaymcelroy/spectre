@@ -114,7 +114,7 @@ class App extends Component {
             )}
           />
           <Route
-            path='/Genres/:name'
+            path='/Genres/:name/'
             render={props => <Genres {...props} genres={this.state.genres} />}
           />
           <Route path='/TvShow/:id' render={props => <TvShow {...props} />} />

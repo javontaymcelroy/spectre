@@ -67,6 +67,7 @@
   background-color: rgba(32, 32, 32, 0);
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  display: none;
 }
 
 .favorite-btn:hover {
@@ -111,7 +112,8 @@
   position: relative;
   z-index: inherit;
   margin-top: 20px;
-  height: 100px;
+  padding-bottom: 30px;
+  height: auto;
 }
 
 .cast {
@@ -135,11 +137,11 @@
   display: flex;
   align-content: flex-end;
   padding-bottom: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .network-logo {
-  padding-top: 20px;
+  padding-top: 0;
   width: auto;
   height: 30px;
   padding-right: 20px;
@@ -166,6 +168,12 @@ mark {
   color: white;
   transition: 0.2s ease-in-out;
 }
+
+/* @media (max-width: 1370px) {
+  .show-player {
+    flex-direction: column;
+  }
+} */
 
 .seasons-flex {
   display: flex;
@@ -241,6 +249,7 @@ mark {
   letter-spacing: 1.2px;
   font-size: 12.5px;
   line-height: 20px;
+  width: 90%;
   color: rgba(255, 255, 255, 0.719);
 }
 
@@ -257,17 +266,6 @@ mark {
   border: 1.2px solid grey;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-}
-
-.visit-site-btn:hover {
-  transition: 0.2s ease-in-out;
-  filter: brightness(120%);
-  border: 1.2px solid rgba(128, 128, 128, 0.459);
-  background-color: rgba(128, 128, 128, 0.178);
-}
-
-.visit-site-btn:focus {
-  outline: none;
 }
 
 .show-page-backdrop {

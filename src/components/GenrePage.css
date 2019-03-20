@@ -37,11 +37,16 @@
 
 .genre-poster-title {
   width: 260px;
-  color: white;
+  color: rgba(255, 255, 255, 0.397);
   font-weight: 400;
   letter-spacing: 1px;
   margin: 20px 0;
   transition: 0.2s ease-in-out;
+}
+
+.page-posters:hover ~ .genre-poster-title {
+  transition: 0.2s ease-in-out;
+  color: rgb(255, 255, 255);
 }
 
 .page-posters:hover {
@@ -53,47 +58,59 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 96.5%;
+  margin: 0 auto;
 }
 
 .prev {
-  width: auto;
+  width: 40px;
   height: 40px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+  background-color: #16ff83;
+  color: rgb(26, 26, 26);
+  outline: none;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .prev:hover {
-  filter: brightness(110%);
+  transform: scale(0.9);
   transition: 0.2s ease-in-out;
 }
 
 .prev.disabled {
-  filter: brightness(50%);
+  background-color: #16ff8300;
+  color: rgba(255, 255, 255, 0.061);
+  border: 1.5px solid #16ff8350;
 }
 
 .next {
-  width: auto;
+  width: 40px;
   height: 40px;
-  padding-left: 10px;
-  padding-right: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #16ff83;
+  color: rgb(26, 26, 26);
+  outline: none;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .next:hover {
+  transform: scale(0.9);
   transition: 0.2s ease-in-out;
-  filter: brightness(120%);
 }
 
 .bottom-page-btns {
   display: flex;
   justify-content: space-between;
   padding-bottom: 50px;
-}
-
-.bottom-page-btns .next {
-  padding-left: 0px;
-  margin-right: 10px;
+  width: 96.5%;
+  margin: 0 auto;
 }
 
 @media (max-width: 800px) {

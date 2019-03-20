@@ -90,20 +90,22 @@ class Genres extends Component {
         <div className='genre-header'>
           <h1 className='headers-genre'>{this.state.category}</h1>
           <div className='page-btns'>
-            <img
+            <button
               className={this.state.pageNumber === 1 ? 'prev disabled' : 'prev'}
-              src='https://i.ibb.co/S7QDMG6/prev.png'
               alt='previous'
               name='prev'
               onClick={this.pageChange}
-            />
-            <img
+            >
+              ◄
+            </button>
+            <button
               className='next'
-              src='https://i.ibb.co/WV7JHS0/next.png'
               alt='next'
               name='next'
               onClick={this.pageChange}
-            />
+            >
+              ►
+            </button>
           </div>
         </div>
         <div className='genre-posters'>
@@ -127,20 +129,22 @@ class Genres extends Component {
           ))}
         </div>
         <div className='bottom-page-btns'>
-          <img
+          <button
             className={this.state.pageNumber === 1 ? 'prev disabled' : 'prev'}
-            src='https://i.ibb.co/S7QDMG6/prev.png'
             alt='previous'
             name='prev'
             onClick={this.pageChange}
-          />
-          <img
+          >
+            ◄
+          </button>
+          <button
             className='next'
-            src='https://i.ibb.co/WV7JHS0/next.png'
             alt='next'
             name='next'
             onClick={this.pageChange}
-          />
+          >
+            ►
+          </button>
         </div>
       </div>
     );
