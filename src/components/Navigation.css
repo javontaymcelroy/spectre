@@ -23,12 +23,12 @@
 
 .search {
   color: grey;
-  width: 16px;
+  width: 50px;
   font-family: 'Roboto', sans-serif;
   border-radius: 20px;
   border: none;
   background-color: rgba(255, 255, 255, 0);
-  margin-right: 10vh;
+  margin-right: 5vh;
   margin-top: 5px;
   transition: 0.2s ease-in-out;
 }
@@ -59,7 +59,7 @@ input:focus {
 
 input,
 .search::placeholder {
-  font-size: 26px;
+  font-size: 15px;
   font-family: 'Roboto', sans-serif;
 }
 

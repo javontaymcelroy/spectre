@@ -16,7 +16,6 @@ class Search extends Component {
 
   getInfo = e => {
     e.preventDefault();
-    console.log('pushing the query string to the results page');
     this.props.history.push(`/results/${this.state.query}`);
   };
 
@@ -27,7 +26,7 @@ class Search extends Component {
       },
       () => {
         if (this.state.query && this.state.query.length > 1) {
-          if (this.state.query.length % 2 === 0) {
+          if (this.state.query.length % 1 === 0) {
             this.getInfo(e);
           }
         } else if (!this.state.query) {
@@ -42,8 +41,9 @@ class Search extends Component {
         <form onSubmit={this.getInfo}>
           <input
             className='search'
-            placeholder='⌕'
+            placeholder='search'
             type='text'
+            value={this.state.query}
             ref={input => (this.search = input)}
             onChange={this.handleInputChange}
           />

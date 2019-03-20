@@ -7,12 +7,7 @@ const SimilarShowsPosters = React.forwardRef(
     <div className='poster-container-nohero scroller' ref={ref} onWheel={wheel}>
       {similarShows.map(similarShows => (
         <div key={similarShows.id}>
-          <NavLink
-            to={`/TvShow/${similarShows.id}`}
-            className='title-links'
-            value='Refresh Page'
-            onClick='window.location.reload()'
-          >
+          <NavLink to={`/TvShow/${similarShows.id}`} className='title-links'>
             <img
               src={`http://image.tmdb.org/t/p/w500${similarShows.poster_path}`}
               alt={similarShows.name}
