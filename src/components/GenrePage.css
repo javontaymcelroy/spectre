@@ -1,8 +1,8 @@
 .genre-page-container {
   position: absolute;
   z-index: 250;
-  left: 12%;
-  top: 70px;
+  left: 13%;
+  top: 45px;
   width: 80%;
 }
 
@@ -11,7 +11,6 @@
   font-weight: 700;
   font-size: 40px;
   letter-spacing: 0.5px;
-  margin-left: 2%;
   margin-bottom: 0;
   padding-bottom: 30px;
 }
@@ -33,6 +32,7 @@
   border-radius: 4px;
   transition: 0.3s ease-in-out;
   cursor: pointer;
+  filter: brightness(80%);
 }
 
 .genre-poster-title {
@@ -50,8 +50,7 @@
 }
 
 .page-posters:hover {
-  filter: brightness(80%);
-  transform: scale(1.05);
+  filter: brightness(100%);
 }
 
 .genre-header {
@@ -84,7 +83,7 @@
 .prev.disabled {
   background-color: #16ff8300;
   color: rgba(255, 255, 255, 0.061);
-  border: 1.5px solid #16ff8350;
+  border: 1.5px solid #50505050;
 }
 
 .next {

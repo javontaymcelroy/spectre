@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = ({ genres }) => {
   return (
     <div className='side-bar'>
-      <NavLink to='/' className='links'>
-        Home
+      <NavLink to='/' className='links-logo'>
+        SPECTRE
       </NavLink>
 
       {genres.map(genre => {
