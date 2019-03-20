@@ -111,7 +111,7 @@ class Genres extends Component {
         <div className='genre-posters'>
           {shows.map(show => (
             <NavLink
-              to={`/TvShow/${show.id}`}
+              to={`/tvshow/${show.id}`}
               key={show.id}
               className='title-links'
             >

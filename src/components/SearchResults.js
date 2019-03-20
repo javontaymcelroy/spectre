@@ -38,7 +38,7 @@ class SearchResults extends Component {
       <div className='search-poster-container'>
         {this.state.results.map(result => {
           return (
-            <Link to={`/TvShow/${result.id}`} className='title-links'>
+            <Link to={`/tvshow/${result.id}`} className='title-links'>
               <div className='search-flex'>
                 <div>
                   <img

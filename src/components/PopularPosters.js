@@ -7,7 +7,7 @@ const PopularPosters = React.forwardRef(
     <div className='poster-container scroller' ref={popref} onWheel={onWheel}>
       {popular.map(popular => (
         <div key={popular.id}>
-          <NavLink to={`/TvShow/${popular.id}/1`} className='title-links'>
+          <NavLink to={`/tvshow/${popular.id}/1`} className='title-links'>
             <img
               src={`http://image.tmdb.org/t/p/w500${popular.poster_path}`}
               alt={popular.name}
