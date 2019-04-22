@@ -13,7 +13,7 @@ const parentNoHero = { width: `100%`, height: `495px` };
 
 const Home = React.forwardRef(
   ({ popular, rated, addDefaultSrc, wheel, popref }, ref) => (
-    <div className='popular-container scroller' style={parent}>
+    <div className='popular-container scroller'>
       <h1 className='headers'>
         <mark>Popular</mark>TV Shows
       </h1>
