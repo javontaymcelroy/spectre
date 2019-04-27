@@ -1,6 +1,6 @@
 class spider {
   constructor() {
-    this.key = '4VQ6XG7DQ6o6EhxC';
+    this.key = 'kSZoH21SOgg1GH07';
   }
 
   getTvStream(id) {
@@ -10,3 +10,7 @@ class spider {
   }
 }
 export default spider;
+
+// First API Key: kSZoH21SOgg1GH07
+// Second API Key: AhWLPUIlhYfa18fg
+// Third API Key: 4VQ6XG7DQ6o6EhxC

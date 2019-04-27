@@ -54,7 +54,7 @@
   width: auto;
   height: 450px;
   border-radius: 2px;
-  filter: brightness(80%);
+  filter: brightness(50%);
   cursor: pointer;
   transition: 0.15s ease-in-out;
 }

@@ -1,7 +1,7 @@
 .show-page-container {
   position: absolute;
   z-index: 250;
-  left: 250px;
+  left: 15%;
   top: 80px;
   width: 80%;
 }
@@ -38,9 +38,9 @@
 
 .pre-header-flex h2 {
   color: #16ff83;
-  padding-left: 10px;
   font-size: 1rem;
   margin-top: 40px;
+  padding-right: 10px;
 }
 
 .header-flex {
