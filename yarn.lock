@@ -7942,6 +7942,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-alert@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/react-alert/-/react-alert-5.5.0.tgz#9154d67e31f72ad439c7147c9bb991f4696e0810"
+  integrity sha512-PzB6ktBmtNZkmgZVdPp/Wbe/zjIBzqBu9QHLTrfquUVVPCVVfn3lPWOebejEg6VOxGepIPOSAsb1bd3ESMyC0Q==
+
 react-alice-carousel@^1.13.1:
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-1.13.1.tgz#6c3d1d8f5358cafd6a90de3212c3d424fc48dfe0"

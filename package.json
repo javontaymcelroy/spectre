@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "moment": "^2.24.0",
     "react": "^16.8.3",
+    "react-alert": "^5.5.0",
     "react-alice-carousel": "^1.13.1",
     "react-dom": "^16.8.3",
     "react-hammerjs": "^1.0.1",
