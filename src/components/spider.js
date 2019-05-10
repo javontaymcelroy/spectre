@@ -1,6 +1,6 @@
 class spider {
   constructor() {
-    this.key = 'kSZoH21SOgg1GH07';
+    this.key = '4VQ6XG7DQ6o6EhxC';
   }
 
   getTvStream(id) {

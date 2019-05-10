@@ -154,7 +154,7 @@ class TvShow extends Component {
   // https://videospider.in/getvideo?key=4VQ6XG7DQ6o6EhxC&video_id=1412&tmdb=1&tv=1&s=1&e=1
 
   getTVStream = () => {
-    const KEY = 'kSZoH21SOgg1GH07';
+    const KEY = 'AhWLPUIlhYfa18fg';
     console.log(this.state.selectedSeason);
     return `https://videospider.stream/personal?key=${KEY}&video_id=${
       this.state.id
