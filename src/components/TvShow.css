@@ -169,16 +169,10 @@ mark {
   transition: 0.2s ease-in-out;
 }
 
-/* @media (max-width: 1370px) {
-  .show-player {
-    flex-direction: column;
-  }
-} */
-
 .seasons-flex {
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
+  width: 30vh;
 }
 
 .seasons {
@@ -195,7 +189,7 @@ mark {
 .episodes {
   overflow: scroll;
   scroll-behavior: smooth;
-  max-height: 300px;
+  max-height: 34vh;
 }
 
 .episodes::-webkit-scrollbar {

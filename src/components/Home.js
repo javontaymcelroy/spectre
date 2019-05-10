@@ -8,7 +8,7 @@ import PopularPosters from './PopularPosters';
 import TopRatedPosters from './TopRatedPosters';
 // ------------FUNCTIONAL COMPONENT ----------------------//
 
-const parent = { width: `82%`, height: `495px` };
+// const parent = { width: `82%`, height: `495px` };
 const parentNoHero = { width: `100%`, height: `495px` };
 
 const Home = React.forwardRef(

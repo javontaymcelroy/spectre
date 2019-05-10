@@ -36,6 +36,10 @@ class TvShow extends Component {
   }
 
   // -----------------------------SHOW DETAILS---------------------------------- //
+  componentWillMount() {
+    this.forceUpdate();
+  }
+
   componentDidMount() {
     console.log('TV show did mount');
     this.setState({ getShow: true });

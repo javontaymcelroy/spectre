@@ -1,12 +1,14 @@
 .nav-bar {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   top: 0;
   right: 0;
+  left: 0;
+  margin: 0 auto;
   padding-top: 10px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   background: linear-gradient(
     180deg,
@@ -22,34 +24,29 @@
 }
 
 .search {
-  color: grey;
-  width: 50px;
-  font-family: 'Roboto', sans-serif;
-  border-radius: 20px;
+  color: rgb(53, 53, 53);
   border: none;
+  width: 200%;
+  font-family: 'Roboto', sans-serif;
   background-color: rgba(255, 255, 255, 0);
-  margin-right: 5vh;
+  border-bottom: 1px solid rgb(65, 65, 65);
   margin-top: 5px;
+  margin-right: 2vh;
   transition: 0.2s ease-in-out;
 }
 
 .search:hover {
-  transition: 0.2s ease-in-out;
-  width: 250px;
-  border: 1px solid rgba(128, 128, 128, 0.26);
-  background-color: rgba(255, 255, 255, 0.048);
+  border-bottom: 1px solid white;
 }
 
 .search:focus {
-  transition: 0.2s ease-in-out;
-  width: 250px;
-  border: 1px solid rgba(128, 128, 128, 0.26);
-  background-color: rgba(255, 255, 255, 0.048);
+  border-bottom: 1px solid white;
 }
 
 input,
 .search {
-  padding: 5px 10px;
+  text-align: center;
+  padding: 5px 0px;
   font-size: 15px;
 }
 
@@ -61,6 +58,7 @@ input,
 .search::placeholder {
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  color: rgb(65, 65, 65);
 }
 
 @media (max-width: 800px) {

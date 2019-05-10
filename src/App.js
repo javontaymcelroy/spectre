@@ -88,6 +88,7 @@ class App extends Component {
     window.scroll(0, 0);
     // ------------DECONSTRUCTIONS----------------------//
     const popular = this.state.popular;
+
     // ------------DATA RETURNS AN EMPTY ARRAY FIRST SO AN IF ELSE STATEMENT IS RAN TO GET THE DATA----------------------------//
     if (popular && popular.length > 0) {
       return (
