@@ -167,6 +167,7 @@ mark {
   width: 100%;
   color: white;
   transition: 0.2s ease-in-out;
+  overflow: hidden;
 }
 
 .seasons-flex {
@@ -189,7 +190,7 @@ mark {
 .episodes {
   overflow: scroll;
   scroll-behavior: smooth;
-  max-height: 34vh;
+  max-height: 80%;
 }
 
 .episodes::-webkit-scrollbar {
