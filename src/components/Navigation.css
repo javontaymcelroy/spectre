@@ -24,20 +24,19 @@
 }
 
 .search {
-  color: rgb(53, 53, 53);
+  color: rgb(72, 72, 72);
   border: none;
   width: 200%;
-  font-family: 'Roboto', sans-serif;
-  background-color: rgba(22, 22, 22, 0.329);
-  border-radius: 10px;
-  border: 1.5px solid rgba(128, 128, 128, 0.089);
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(80, 80, 80, 0.329);
+  border-radius: 5px;
   margin-top: 5px;
   margin-right: 2vh;
   transition: 0.2s ease-in-out;
 }
 
 .search:hover {
-  background-color: rgba(56, 56, 56, 0.329);
+  background-color: rgba(106, 106, 106, 0.329);
 }
 
 input,
@@ -55,7 +54,7 @@ input:focus {
 input,
 .search::placeholder {
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(167, 167, 167);
 }
 

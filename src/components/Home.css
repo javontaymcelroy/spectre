@@ -18,7 +18,7 @@
 .headers-top {
   color: white;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   padding-bottom: 0;
 }
@@ -32,7 +32,7 @@
 .headers {
   color: white;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   margin: 0;
   padding-bottom: 30px;
@@ -55,7 +55,6 @@
 .big-poster {
   width: auto;
   height: 450px;
-  border-radius: 2px;
   filter: brightness(50%);
   cursor: pointer;
   transition: 0.15s ease-in-out;
